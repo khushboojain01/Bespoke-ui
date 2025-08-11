@@ -531,7 +531,7 @@ const handleSaveNotes = () => {
                                 </div>
                                 
                                 <div className={`text-xs font-medium ${
-                                  selectedInternalLining === lining.id ? 'text-blue-700' : 'text-gray-600'
+                                  selectedInternalLining === lining.id ? 'text-gray-700' : 'text-gray-600'
                                 }`}>
                                   {lining.name}
                                 </div>
@@ -613,7 +613,7 @@ const handleSaveNotes = () => {
                                 </div>
                                 
                                 <div className={`text-xs font-medium ${
-                                  selectedPocketSquare === option.id ? 'text-blue-700' : 'text-gray-600'
+                                  selectedPocketSquare === option.id ? 'text-gray-700' : 'text-gray-600'
                                 }`}>
                                   {option.name}
                                 </div>
@@ -647,7 +647,7 @@ const handleSaveNotes = () => {
                                 </div>
                                 
                                 <div className={`text-xs font-medium ${
-                                  selectedButtons === option.id ? 'text-blue-700' : 'text-gray-600'
+                                  selectedButtons === option.id ? 'text-gray-700' : 'text-gray-600'
                                 }`}>
                                   {option.name}
                                 </div>
@@ -679,7 +679,7 @@ const handleSaveNotes = () => {
                                 <div className="flex items-center justify-center">
                                   <div className="w-10 h-6 bg-gray-200 rounded border mr-3"></div>
                                   <div className={`text-xs font-medium ${
-                                    selectedButtonThreads === option.id ? 'text-blue-700' : 'text-gray-600'
+                                    selectedButtonThreads === option.id ? 'text-gray-700' : 'text-gray-600'
                                   }`}>
                                     {option.name}
                                   </div>
@@ -714,7 +714,7 @@ const handleSaveNotes = () => {
                                 </div>
                                 
                                 <div className={`text-xs font-medium ${
-                                  selectedBowtie === option.id ? 'text-blue-700' : 'text-gray-600'
+                                  selectedBowtie === option.id ? 'text-gray-700' : 'text-gray-600'
                                 }`}>
                                   {option.name}
                                 </div>
@@ -748,7 +748,7 @@ const handleSaveNotes = () => {
                                 </div>
                                 
                                 <div className={`text-xs font-medium ${
-                                  selectedNecktie === option.id ? 'text-blue-700' : 'text-gray-600'
+                                  selectedNecktie === option.id ? 'text-gray-700' : 'text-gray-600'
                                 }`}>
                                   {option.name}
                                 </div>
@@ -782,7 +782,7 @@ const handleSaveNotes = () => {
                                 </div>
                                 
                                 <div className={`text-xs font-medium ${
-                                  selectedBraces === option.id ? 'text-blue-700' : 'text-gray-600'
+                                  selectedBraces === option.id ? 'text-gray-700' : 'text-gray-600'
                                 }`}>
                                   {option.name}
                                 </div>
@@ -816,7 +816,7 @@ const handleSaveNotes = () => {
                                 </div>
                                 
                                 <div className={`text-xs font-medium ${
-                                  selectedBelt === option.id ? 'text-blue-700' : 'text-gray-600'
+                                  selectedBelt === option.id ? 'text-gray-700' : 'text-gray-600'
                                 }`}>
                                   {option.name}
                                 </div>
@@ -850,7 +850,7 @@ const handleSaveNotes = () => {
                                 </div>
                                 
                                 <div className={`text-xs font-medium ${
-                                  selectedSocks === option.id ? 'text-blue-700' : 'text-gray-600'
+                                  selectedSocks === option.id ? 'text-gray-700' : 'text-gray-600'
                                 }`}>
                                   {option.name}
                                 </div>
@@ -888,7 +888,7 @@ const handleSaveNotes = () => {
                                 </div>
                                 
                                 <div className={`text-xs font-medium ${
-                                  selectedPantStyle === style.id ? 'text-blue-700' : 'text-gray-600'
+                                  selectedPantStyle === style.id ? 'text-gray-700' : 'text-gray-600'
                                 }`}>
                                   {style.name}
                                 </div>
@@ -922,7 +922,7 @@ const handleSaveNotes = () => {
                                 </div>
                                 
                                 <div className={`text-xs font-medium ${
-                                  selectedPantCuff === cuff.id ? 'text-blue-700' : 'text-gray-600'
+                                  selectedPantCuff === cuff.id ? 'text-gray-700' : 'text-gray-600'
                                 }`}>
                                   {cuff.name}
                                 </div>
@@ -961,7 +961,7 @@ const handleSaveNotes = () => {
                                 </div>
                                 
                                 <div className={`text-xs font-medium ${
-                                  selectedWaistcoatBack === back.id ? 'text-blue-700' : 'text-gray-600'
+                                  selectedWaistcoatBack === back.id ? 'text-gray-700' : 'text-gray-600'
                                 }`}>
                                   {back.name}
                                 </div>
@@ -1000,7 +1000,7 @@ const handleSaveNotes = () => {
                                 </div>
                                 
                                 <div className={`text-xs font-medium ${
-                                  selectedTieStyle === style.id ? 'text-blue-700' : 'text-gray-600'
+                                  selectedTieStyle === style.id ? 'text-gray-700' : 'text-gray-600'
                                 }`}>
                                   {style.name}
                                 </div>
@@ -1035,7 +1035,7 @@ const handleSaveNotes = () => {
                                   </div>
                                   
                                   <div className={`text-xs font-medium ${
-                                    selectedTieWidth === width.id ? 'text-blue-700' : 'text-gray-600'
+                                    selectedTieWidth === width.id ? 'text-gray-700' : 'text-gray-600'
                                   }`}>
                                     {width.name}
                                   </div>
@@ -1070,7 +1070,7 @@ const handleSaveNotes = () => {
                                 </div>
                                 
                                 <div className={`text-xs font-medium ${
-                                  selectedTiePattern === pattern.id ? 'text-blue-700' : 'text-gray-600'
+                                  selectedTiePattern === pattern.id ? 'text-gray-700' : 'text-gray-600'
                                 }`}>
                                   {pattern.name}
                                 </div>
@@ -1266,7 +1266,7 @@ const handleSaveNotes = () => {
                                 </div>
                                 
                                 <div className={`text-xs font-medium ${
-                                  selectedCollar === collar.id ? 'text-blue-700' : 'text-gray-600'
+                                  selectedCollar === collar.id ? 'text-gray-700' : 'text-gray-600'
                                 }`}>
                                   {collar.name}
                                 </div>
@@ -1300,7 +1300,7 @@ const handleSaveNotes = () => {
                                 </div>
                                 
                                 <div className={`text-xs font-medium ${
-                                  selectedCuff === cuff.id ? 'text-blue-700' : 'text-gray-600'
+                                  selectedCuff === cuff.id ? 'text-gray-700' : 'text-gray-600'
                                 }`}>
                                   {cuff.name}
                                 </div>
@@ -1334,7 +1334,7 @@ const handleSaveNotes = () => {
                                 </div>
                                 
                                 <div className={`text-xs font-medium ${
-                                  selectedFront === front.id ? 'text-blue-700' : 'text-gray-600'
+                                  selectedFront === front.id ? 'text-gray-700' : 'text-gray-600'
                                 }`}>
                                   {front.name}
                                 </div>

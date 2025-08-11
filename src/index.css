@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @media (max-width: 768px) {
+    /* Keep horizontal layout */
+    .workspace-wrapper .flex.h-\[calc\(100vh-120px\)\] {
+      flex-direction: row !important;
+      height: calc(100vh - 120px) !important;
+    }
+
+    /* Left panel collapsed */
+    .workspace-wrapper .w-48 {
+      width: 60px !important;
+      min-width: 60px !important;
+      overflow: hidden !important;
+      border-right: 1px solid #e5e7eb;
+    }
+
+    /* Center canvas flexes to available space */
+    .workspace-wrapper .flex-1.flex.flex-col.bg-white {
+      flex: 1 1 auto !important;
+      min-width: 0 !important;
+      height: 100% !important;
+    }
+
+    /* Right panel narrower on mobile */
+    .workspace-wrapper .w-80 {
+      width: 120px !important;
+      min-width: 120px !important;
+      border-left: 1px solid #e5e7eb;
+    }
+  }
+}

@@ -5,7 +5,7 @@ const ProjectOverview = () => {
   const [selectedOutfit, setSelectedOutfit] = useState(1);
   const [customerInfoExpanded, setCustomerInfoExpanded] = useState(false);
   const [consultationHistoryExpanded, setConsultationHistoryExpanded] = useState(false);
-  const [editingPriceItem, setEditingPriceItem] = useState<string | null>(null);
+  const [editingPriceItem, setEditingPriceItem] = useState(null);
   const [priceBreakdown, setPriceBreakdown] = useState({
     fabric: 850,
     construction: 349,

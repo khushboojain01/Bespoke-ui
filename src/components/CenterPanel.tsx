@@ -180,5 +180,4 @@ const CenterPanel = () => {
     </div>
   );
 };
-
-export default CenterPanel;
+export default CenterPanel; 

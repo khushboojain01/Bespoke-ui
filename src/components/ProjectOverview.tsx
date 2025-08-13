@@ -30,7 +30,6 @@ const ProjectOverview = () => {
       comment: 'Perfect fit and great quality! The fabric feels premium and the tailoring is exceptional. Really impressed with the attention to detail.',
       image: 'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=400&h=600',
       selected: true,
-    
     },
     {
       id: 2,
@@ -41,7 +40,6 @@ const ProjectOverview = () => {
       comment: 'Elegant and stylish design with sophisticated details. The price point is higher than expected, but the quality justifies it.',
       image: 'https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&w=400&h=600',
       selected: false,
-   
     },
     {
       id: 3,
@@ -52,7 +50,6 @@ const ProjectOverview = () => {
       comment: 'Casual and comfortable for weekend wear. The style is well-executed but doesn\'t match my personal aesthetic preferences.',
       image: 'https://images.pexels.com/photos/1043472/pexels-photo-1043472.jpeg?auto=compress&cs=tinysrgb&w=400&h=600',
       selected: false,
-    
     }
   ];
 
@@ -65,10 +62,10 @@ const ProjectOverview = () => {
   };
 
   return (
-    <div className="px-6 py-4 space-y-6 bg-gray-50 min-h-full max-w-6xl mx-auto">
-      {/* Progress Tracker */}
-      <div className="bg-white rounded-lg border border-gray-200 p-6">
-        <h2 className="text-lg font-medium text-gray-900 mb-6">Progress</h2>
+    <div className="px-3 sm:px-6 py-4 space-y-4 sm:space-y-6 bg-gray-50 min-h-full max-w-6xl mx-auto">
+      {/* Progress Tracker - Mobile Optimized */}
+      <div className="bg-white rounded-lg border border-gray-200 p-4 sm:p-6">
+        <h2 className="text-base sm:text-lg font-medium text-gray-900 mb-4 sm:mb-6">Progress</h2>
         
         <div className="relative">
           {/* Background progress line */}
@@ -84,9 +81,9 @@ const ProjectOverview = () => {
           
           <div className="relative flex justify-between">
             {progressSteps.map((step, index) => (
-              <div key={step.id} className="flex flex-col items-center">
+              <div key={step.id} className="flex flex-col items-center flex-1 min-w-0">
                 {/* Step circle */}
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium relative z-10 transition-colors ${
+                <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-medium relative z-10 transition-colors ${
                   step.status === 'completed' 
                     ? 'bg-blue-500 text-white' 
                     : step.status === 'current'
@@ -97,12 +94,12 @@ const ProjectOverview = () => {
                 </div>
                 
                 {/* Step label and date */}
-                <div className="mt-3 text-center">
-                  <div className={`text-sm font-medium ${
+                <div className="mt-2 sm:mt-3 text-center">
+                  <div className={`text-xs sm:text-sm font-medium ${
                     step.status === 'completed' || step.status === 'current' 
                       ? 'text-gray-900' 
                       : 'text-gray-500'
-                  }`}>
+                  } leading-tight px-1`}>
                     {step.label}
                   </div>
                   <div className="text-xs text-gray-500 mt-0.5">{step.date}</div>
@@ -113,10 +110,12 @@ const ProjectOverview = () => {
         </div>
       </div>
 
-      {/* Outfit Options - Enhanced with Visible Reviews */}
-      <div className="bg-white rounded-lg border border-gray-200 p-6">
-        <h2 className="text-lg font-medium text-gray-900 mb-6">Options Comparison</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {/* Outfit Options - Mobile Responsive */}
+      <div className="bg-white rounded-lg border border-gray-200 p-4 sm:p-6">
+        <h2 className="text-base sm:text-lg font-medium text-gray-900 mb-4 sm:mb-6">Options Comparison</h2>
+        
+        {/* Mobile: Single column, Tablet: 2 columns, Desktop: 3 columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {outfits.map((outfit) => (
             <div 
               key={outfit.id}
@@ -129,26 +128,26 @@ const ProjectOverview = () => {
             >
               {/* Selection indicator */}
               {selectedOutfit === outfit.id && (
-                <div className="absolute top-4 right-4 w-3 h-3 bg-blue-500 rounded-full z-10"></div>
+                <div className="absolute top-3 sm:top-4 right-3 sm:right-4 w-3 h-3 bg-blue-500 rounded-full z-10"></div>
               )}
               
-              {/* Image section */}
+              {/* Image section - Full height on desktop */}
               <div className="relative">
-                <div className="w-full rounded-t-lg overflow-hidden bg-gray-100" style={{ paddingBottom: '75%' }}>
+                <div className="w-full h-48 sm:h-64 md:h-72 rounded-t-lg overflow-hidden bg-gray-100">
                   <img
                     src={outfit.image}
                     alt={outfit.title}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 
-                <div className="absolute top-3 left-3 w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center text-sm font-medium shadow-lg">
+                <div className="absolute top-3 left-3 w-6 h-6 sm:w-8 sm:h-8 bg-gray-900 text-white rounded-full flex items-center justify-center text-xs sm:text-sm font-medium shadow-lg">
                   {outfit.id}
                 </div>
                 
                 {/* Status badge */}
                 <div className="absolute top-3 right-3">
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium shadow-sm ${
+                  <span className={`px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs font-medium shadow-sm ${
                     outfit.status === 'Approved' ? 'bg-green-100 text-green-700 border border-green-200' :
                     outfit.status === 'Pending' ? 'bg-amber-100 text-amber-700 border border-amber-200' :
                     'bg-red-100 text-red-700 border border-red-200'
@@ -159,11 +158,11 @@ const ProjectOverview = () => {
               </div>
               
               {/* Content section */}
-              <div className="p-5 space-y-4">
+              <div className="p-3 sm:p-5 space-y-2 sm:space-y-4">
                 {/* Title and Price */}
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{outfit.title}</h3>
-                  <div className="text-xl font-bold text-gray-900">{outfit.price}</div>
+                  <h3 className="text-sm sm:text-lg font-semibold text-gray-900 mb-1 leading-tight">{outfit.title}</h3>
+                  <div className="text-lg sm:text-xl font-bold text-gray-900">{outfit.price}</div>
                 </div>
                 
                 {/* Rating */}
@@ -172,38 +171,37 @@ const ProjectOverview = () => {
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className={`w-4 h-4 ${
+                        className={`w-3 h-3 sm:w-4 sm:h-4 ${
                           i < outfit.rating ? 'text-amber-400 fill-current' : 'text-gray-300'
                         }`}
                       />
                     ))}
                   </div>
-                  <span className="text-sm text-gray-600">({outfit.rating}/5)</span>
+                  <span className="text-xs sm:text-sm text-gray-600">({outfit.rating}/5)</span>
                 </div>
                 
                 {/* Review Comment */}
-                <div className="bg-gray-50 rounded-lg p-3">
+                <div className="bg-gray-50 rounded-lg p-2 sm:p-3">
                   <div className="flex items-start space-x-2">
-                    <MessageSquare className="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0" />
-                    <p className="text-sm text-gray-700 leading-relaxed">{outfit.comment}</p>
+                    <MessageSquare className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 mt-0.5 flex-shrink-0" />
+                    <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">{outfit.comment}</p>
                   </div>
                 </div>
-              
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Price Breakdown */}
+      {/* Price Breakdown - Mobile Optimized */}
       {selectedOutfitData && (
-        <div className="bg-white rounded-lg border border-gray-200 p-6">
-          <h2 className="text-lg font-medium text-gray-900 mb-4">Price Breakdown</h2>
-          <div className="space-y-3">
+        <div className="bg-white rounded-lg border border-gray-200 p-4 sm:p-6">
+          <h2 className="text-base sm:text-lg font-medium text-gray-900 mb-3 sm:mb-4">Price Breakdown</h2>
+          <div className="space-y-2 sm:space-y-3">
             {Object.entries(priceBreakdown).map(([item, price]) => (
               <div key={item} className="flex items-center justify-between py-2">
-                <span className="text-gray-700 capitalize font-medium">{item}:</span>
-                <div className="flex items-center space-x-3">
+                <span className="text-sm sm:text-base text-gray-700 capitalize font-medium">{item}:</span>
+                <div className="flex items-center space-x-2 sm:space-x-3">
                   {editingPriceItem === item ? (
                     <input
                       type="number"
@@ -211,49 +209,49 @@ const ProjectOverview = () => {
                       onChange={(e) => handlePriceEdit(item, parseInt(e.target.value) || 0)}
                       onBlur={() => setEditingPriceItem(null)}
                       onKeyPress={(e) => e.key === 'Enter' && setEditingPriceItem(null)}
-                      className="w-20 px-3 py-1 border border-gray-300 rounded-md text-right focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-16 sm:w-20 px-2 sm:px-3 py-1 border border-gray-300 rounded-md text-right text-sm sm:text-base focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                       autoFocus
                     />
                   ) : (
-                    <span className="font-semibold text-gray-900">{price}€</span>
+                    <span className="font-semibold text-gray-900 text-sm sm:text-base">{price}€</span>
                   )}
                   <button
                     onClick={() => setEditingPriceItem(item)}
-                    className="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
+                    className="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors touch-manipulation"
                   >
-                    <Edit3 className="w-4 h-4" />
+                    <Edit3 className="w-3 h-3 sm:w-4 sm:h-4" />
                   </button>
                 </div>
               </div>
             ))}
-            <div className="border-t border-gray-200 pt-3 mt-4 flex items-center justify-between">
-              <span className="text-lg font-semibold text-gray-900">Total:</span>
-              <span className="text-xl font-bold text-gray-900">{total}€</span>
+            <div className="border-t border-gray-200 pt-3 mt-3 sm:mt-4 flex items-center justify-between">
+              <span className="text-base sm:text-lg font-semibold text-gray-900">Total:</span>
+              <span className="text-lg sm:text-xl font-bold text-gray-900">{total}€</span>
             </div>
           </div>
         </div>
       )}
 
-      {/* Customer Info */}
+      {/* Customer Info - Mobile Optimized */}
       <div className="bg-white rounded-lg border border-gray-200">
         <button
           onClick={() => setCustomerInfoExpanded(!customerInfoExpanded)}
-          className="w-full p-6 flex items-center justify-between text-left hover:bg-gray-50 rounded-lg transition-colors"
+          className="w-full p-4 sm:p-6 flex items-center justify-between text-left hover:bg-gray-50 rounded-lg transition-colors touch-manipulation"
         >
-          <h2 className="text-lg font-medium text-gray-900">Customer Info</h2>
+          <h2 className="text-base sm:text-lg font-medium text-gray-900">Customer Info</h2>
           {customerInfoExpanded ? (
-            <ChevronDown className="w-5 h-5 text-gray-400" />
+            <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
           ) : (
-            <ChevronRight className="w-5 h-5 text-gray-400" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
           )}
         </button>
         
         {customerInfoExpanded && (
-          <div className="px-6 pb-4 border-t border-gray-200">
+          <div className="px-4 sm:px-6 pb-4 sm:pb-6 border-t border-gray-200">
             {/* Customer Profile */}
-            <div className="flex items-start space-x-4 mb-4 mt-4">
+            <div className="flex items-start space-x-3 sm:space-x-4 mb-4 mt-4">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gray-200 rounded-lg overflow-hidden">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
                   <img 
                     src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150" 
                     alt="Marcus Hill"
@@ -261,7 +259,7 @@ const ProjectOverview = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Marcus Hill</h3>
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900">Marcus Hill</h3>
                   <p className="text-xs text-gray-600">Order ID: #2275</p>
                   <div className="flex items-center mt-1">
                     <Star className="w-3 h-3 text-amber-400 fill-current" />
@@ -271,22 +269,22 @@ const ProjectOverview = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="space-y-6 lg:grid lg:grid-cols-2 lg:gap-6 lg:space-y-0">
               {/* Contact Information */}
               <div>
                 <h4 className="text-sm font-semibold text-gray-900 mb-3">Contact Details</h4>
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
-                    <Mail className="w-3 h-3 text-gray-400" />
-                    <span className="text-xs text-gray-700">marcus.hill@email.com</span>
+                    <Mail className="w-3 h-3 text-gray-400 flex-shrink-0" />
+                    <span className="text-xs sm:text-sm text-gray-700 break-all">marcus.hill@email.com</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Phone className="w-3 h-3 text-gray-400" />
-                    <span className="text-xs text-gray-700">+1 (555) 123-4567</span>
+                    <Phone className="w-3 h-3 text-gray-400 flex-shrink-0" />
+                    <span className="text-xs sm:text-sm text-gray-700">+1 (555) 123-4567</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <MapPin className="w-3 h-3 text-gray-400" />
-                    <span className="text-xs text-gray-700">New York, NY</span>
+                    <MapPin className="w-3 h-3 text-gray-400 flex-shrink-0" />
+                    <span className="text-xs sm:text-sm text-gray-700">New York, NY</span>
                   </div>
                 </div>
 
@@ -323,28 +321,28 @@ const ProjectOverview = () => {
               <div>
                 <h4 className="text-sm font-semibold text-gray-900 mb-3">Measurements</h4>
                 <div className="space-y-3">
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-2 sm:gap-3">
                     <div className="bg-gray-50 rounded-md p-2">
                       <div className="text-xs text-gray-500 uppercase tracking-wide font-medium">Chest</div>
-                      <div className="text-base font-semibold text-gray-900 mt-0.5">40"</div>
+                      <div className="text-sm sm:text-base font-semibold text-gray-900 mt-0.5">40"</div>
                     </div>
                     <div className="bg-gray-50 rounded-md p-2">
                       <div className="text-xs text-gray-500 uppercase tracking-wide font-medium">Waist</div>
-                      <div className="text-base font-semibold text-gray-900 mt-0.5">34"</div>
+                      <div className="text-sm sm:text-base font-semibold text-gray-900 mt-0.5">34"</div>
                     </div>
                     <div className="bg-gray-50 rounded-md p-2">
                       <div className="text-xs text-gray-500 uppercase tracking-wide font-medium">Shoulders</div>
-                      <div className="text-base font-semibold text-gray-900 mt-0.5">18"</div>
+                      <div className="text-sm sm:text-base font-semibold text-gray-900 mt-0.5">18"</div>
                     </div>
                     <div className="bg-gray-50 rounded-md p-2">
                       <div className="text-xs text-gray-500 uppercase tracking-wide font-medium">Height</div>
-                      <div className="text-base font-semibold text-gray-900 mt-0.5">5'10"</div>
+                      <div className="text-sm sm:text-base font-semibold text-gray-900 mt-0.5">5'10"</div>
                     </div>
                   </div>
 
                   {/* Additional Measurements */}
                   <div className="pt-2 border-t border-gray-200">
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-2 gap-2 sm:gap-3">
                       <div className="flex justify-between text-xs">
                         <span className="text-gray-600">Inseam:</span>
                         <span className="font-medium text-gray-900">32"</span>
@@ -370,15 +368,15 @@ const ProjectOverview = () => {
                   <h4 className="text-sm font-semibold text-gray-900 mb-2">Style Preferences</h4>
                   <div className="space-y-1">
                     <div className="flex items-center space-x-2">
-                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full flex-shrink-0"></div>
                       <span className="text-xs text-gray-700">Prefers modern, tailored fits</span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full flex-shrink-0"></div>
                       <span className="text-xs text-gray-700">Business professional style</span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full flex-shrink-0"></div>
                       <span className="text-xs text-gray-700">Navy and charcoal colors</span>
                     </div>
                   </div>
@@ -389,59 +387,59 @@ const ProjectOverview = () => {
         )}
       </div>
 
-      {/* Consultation History */}
+      {/* Consultation History - Mobile Optimized */}
       <div className="bg-white rounded-lg border border-gray-200">
         <button
           onClick={() => setConsultationHistoryExpanded(!consultationHistoryExpanded)}
-          className="w-full p-6 flex items-center justify-between text-left hover:bg-gray-50 rounded-lg transition-colors"
+          className="w-full p-4 sm:p-6 flex items-center justify-between text-left hover:bg-gray-50 rounded-lg transition-colors touch-manipulation"
         >
-          <h2 className="text-lg font-medium text-gray-900">History</h2>
+          <h2 className="text-base sm:text-lg font-medium text-gray-900">History</h2>
           {consultationHistoryExpanded ? (
-            <ChevronDown className="w-5 h-5 text-gray-400" />
+            <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
           ) : (
-            <ChevronRight className="w-5 h-5 text-gray-400" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
           )}
         </button>
         
         {consultationHistoryExpanded && (
-          <div className="px-6 pb-6 border-t border-gray-200">
-            <div className="space-y-4 mt-6">
-              <div className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
-                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <User className="w-4 h-4 text-blue-600" />
+          <div className="px-4 sm:px-6 pb-4 sm:pb-6 border-t border-gray-200">
+            <div className="space-y-3 sm:space-y-4 mt-4 sm:mt-6">
+              <div className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-50 rounded-lg">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <User className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center justify-between mb-1 sm:mb-2">
                     <h4 className="text-sm font-medium text-gray-900">Initial Consultation</h4>
-                    <span className="text-sm text-gray-500">Jan 15</span>
+                    <span className="text-xs sm:text-sm text-gray-500">Jan 15</span>
                   </div>
-                  <p className="text-sm text-gray-700">Discussed business attire preferences.</p>
+                  <p className="text-xs sm:text-sm text-gray-700">Discussed business attire preferences.</p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
-                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <User className="w-4 h-4 text-green-600" />
+              <div className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-50 rounded-lg">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <User className="w-3 h-3 sm:w-4 sm:h-4 text-green-600" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center justify-between mb-1 sm:mb-2">
                     <h4 className="text-sm font-medium text-gray-900">Design Review</h4>
-                    <span className="text-sm text-gray-500">Jan 18</span>
+                    <span className="text-xs sm:text-sm text-gray-500">Jan 18</span>
                   </div>
-                  <p className="text-sm text-gray-700">Presented three options, preferred navy suit.</p>
+                  <p className="text-xs sm:text-sm text-gray-700">Presented three options, preferred navy suit.</p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
-                <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <User className="w-4 h-4 text-amber-600" />
+              <div className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-gray-50 rounded-lg">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <User className="w-3 h-3 sm:w-4 sm:h-4 text-amber-600" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center justify-between mb-1 sm:mb-2">
                     <h4 className="text-sm font-medium text-gray-900">Feedback Session</h4>
-                    <span className="text-sm text-gray-500">Jan 22</span>
+                    <span className="text-xs sm:text-sm text-gray-500">Jan 22</span>
                   </div>
-                  <p className="text-sm text-gray-700">Requested fit adjustments, discussed timeline.</p>
+                  <p className="text-xs sm:text-sm text-gray-700">Requested fit adjustments, discussed timeline.</p>
                 </div>
               </div>
             </div>

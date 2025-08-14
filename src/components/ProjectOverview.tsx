@@ -86,7 +86,7 @@ const ProjectOverview = () => {
               key={outfit.id}
               className={`relative rounded-lg cursor-pointer transition-all duration-200 border ${
                 selectedOutfit === outfit.id
-                  ? 'bg-blue-50 shadow-md' 
+                  ? 'bg-gray-50 shadow-md' 
                   : 'bg-white border-gray-200 hover:border-gray-300'
               }`}
               onClick={() => setSelectedOutfit(outfit.id)}

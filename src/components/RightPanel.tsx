@@ -4,9 +4,15 @@ import { User, Save, Edit3, Layout, Palette, Heart, MessageSquare, Ruler, Chevro
 const RightPanel = () => {
   const [isEditingProfile, setIsEditingProfile] = useState(false);
   const [measurementsExpanded, setMeasurementsExpanded] = useState(false);
+  type Note = {
+    id: number;
+    content: string;
+    timestamp: string;
+  };
+
   const [notes, setNotes] = useState('');
   const [notesSaved, setNotesSaved] = useState(false);
-  const [savedNotes, setSavedNotes] = useState([]);
+  const [savedNotes, setSavedNotes] = useState<Note[]>([]);
   const [notesExpanded, setNotesExpanded] = useState(false);
   const [editablePreferences, setEditablePreferences] = useState({
     occasion: 'Business meetings',

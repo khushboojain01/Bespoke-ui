@@ -1,4 +1,4 @@
-import React from 'react';ov
+import React from 'react';
 import LeftPanel from './LeftPanel';
 import CenterPanel from './CenterPanel';
 import RightPanel from './RightPanel';

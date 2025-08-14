@@ -165,22 +165,19 @@ const CenterPanel = () => {
 
         {/* 3D View - Mobile Responsive Bottom Right */}
         <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-6 z-10">
-          <button className="bg-white rounded-lg border border-gray-200 p-2 sm:p-3 w-16 sm:w-20 lg:w-24 hover:bg-gray-50 transition-colors">
-            <div className="w-full aspect-[4/3] bg-gray-100 rounded border flex items-center justify-center mb-1 sm:mb-2 relative">
+          <button className="bg-white rounded-lg border border-gray-200 p-2 sm:p-3 w-16 sm:w-20 lg:w-24  transition-colors">
+            <div className="w-full h-20 aspect-[4/3] bg-gray-200  border flex items-center justify-center mb-1 sm:mb-2 relative hover:bg-gray-300">
               {/* 3D Icon in top right */}
-              <div className="absolute top-1 right-1 w-3 h-3 sm:w-4 sm:h-4">
+              <div className="absolute top-1 right-1 w-3 h-5 sm:w-4 sm:h-4">
                 <img 
-                  src="/rotate-3d.svg" 
+                  src="/rotate.svg" 
                   alt="3D rotate icon" 
                   className="w-full h-full object-contain"
                 />
               </div>
               
               {/* Existing content */}
-              <div className="flex space-x-0.5">
-                <div className="w-1 h-4 sm:w-1.5 sm:h-6 bg-gray-400 rounded-sm"></div>
-                <div className="w-0.5 h-4 sm:w-1 sm:h-6 bg-gray-500 rounded-sm"></div>
-              </div>
+              
             </div>
           </button>
         </div>

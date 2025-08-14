@@ -34,46 +34,49 @@ function App() {
     return option ? option.color : 'gray';
   };
 
-  // Progress Bar Component
+  // Progress Bar Component - Made Smaller
   const ProgressBar = () => (
-    <div className="bg-white border-b border-gray-200 p-4 sm:p-6">
-      <div className="relative">
-        {/* Background progress line */}
-        <div className="absolute top-4 left-4 right-4 h-0.5 bg-gray-200 rounded-full"></div>
-        
-        {/* Active progress line */}
-        <div 
-          className="absolute top-4 left-4 h-0.5 bg-blue-600 rounded-full transition-all duration-300"
-          style={{ 
-            width: `${(progressSteps.filter(step => step.status === 'completed').length / (progressSteps.length - 1)) * 100}%` 
-          }}
-        ></div>
-        
-        <div className="relative flex justify-between">
-          {progressSteps.map((step, index) => (
-            <div key={step.id} className="flex flex-col items-center flex-1 min-w-0">
-              <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-xs sm:text-sm font-medium relative z-10 transition-all duration-200 ${
-                step.status === 'completed' 
-                  ? 'bg-blue-600 text-white' 
-                  : step.status === 'current'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-white text-gray-500 border border-gray-300'
-              }`}>
-                {step.status === 'completed' ? '✓' : index + 1}
-              </div>
-              
-              <div className="mt-2 sm:mt-3 text-center">
-                <div className={`text-xs sm:text-sm font-medium ${
-                  step.status === 'completed' || step.status === 'current' 
-                    ? 'text-gray-900' 
-                    : 'text-gray-500'
-                } leading-tight px-1`}>
-                  {step.label}
+    <div className="bg-white border-b border-gray-200 p-3 sm:p-4">
+      <div className="max-w-4xl mx-auto">
+        <div className="relative">
+          {/* Background progress line */}
+          <div className="absolute top-3 left-3 right-3 h-0.5 bg-gray-300 rounded-full" style={{ height: '2px' }}></div>
+          
+          {/* Active progress line */}
+          <div 
+            className="absolute top-3 left-3 bg-blue-500 rounded-full transition-all duration-300"
+            style={{ 
+              height: '2px',
+              width: `${(progressSteps.filter(step => step.status === 'completed').length / (progressSteps.length - 1)) * 100}%` 
+            }}
+          ></div>
+          
+          <div className="relative flex justify-between">
+            {progressSteps.map((step, index) => (
+              <div key={step.id} className="flex flex-col items-center flex-1 min-w-0">
+                <div className={`w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center text-xs font-medium relative z-10 transition-all duration-200 ${
+                  step.status === 'completed' 
+                    ? 'bg-blue-600 text-white' 
+                    : step.status === 'current'
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-white text-gray-500 border border-gray-300'
+                }`}>
+                  {step.status === 'completed' ? '✓' : index + 1}
                 </div>
-                <div className="text-xs text-gray-500 mt-1">{step.date}</div>
+                
+                <div className="mt-1.5 sm:mt-2 text-center">
+                  <div className={`text-xs font-medium ${
+                    step.status === 'completed' || step.status === 'current' 
+                      ? 'text-gray-900' 
+                      : 'text-gray-500'
+                  } leading-tight px-1`}>
+                    {step.label}
+                  </div>
+                  <div className="text-xs text-gray-500 mt-0.5">{step.date}</div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

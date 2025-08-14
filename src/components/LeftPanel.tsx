@@ -1302,7 +1302,7 @@ return (
                 {/* Fabric Grid - Full Height Scrollable - Mobile Responsive */}
                 <div className="flex-1 overflow-y-auto p-3 lg:p-4">
                   <div className="grid grid-cols-2 gap-3 lg:gap-4">
-                    {/* Upload Card - Always First */}
+                  
                     
 
                     {filteredFabrics.map((fabric) => (

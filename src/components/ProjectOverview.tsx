@@ -76,7 +76,7 @@ const ProjectOverview = () => {
   ];
 
   const renderStylesSection = () => (
-    <div className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+    <div className="px-6 py-6">
       {/* Outfit Options */}
       <div className="mb-8">
         <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-4 sm:mb-6">Style Options</h3>
@@ -205,7 +205,7 @@ const ProjectOverview = () => {
   );
 
   const renderCustomerSection = () => (
-    <div className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+    <div className="px-6 py-6">
       {/* Customer Profile */}
       <div className="bg-white border border-gray-200 rounded-lg p-6 sm:p-8">
         <div className="flex items-start space-x-6 mb-8">
@@ -345,7 +345,7 @@ const ProjectOverview = () => {
   );
 
   const renderHistorySection = () => (
-    <div className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+    <div className="px-6 py-6">
       {/* History Content */}
       <div className="bg-white border border-gray-200 rounded-lg p-6 sm:p-8">
         <h3 className="text-xl font-medium text-gray-900 mb-8">Consultation Timeline</h3>
@@ -385,7 +385,7 @@ const ProjectOverview = () => {
       {/* Fixed Left Sidebar Navigation */}
       <div className="w-64 bg-white border-r border-gray-200 fixed inset-y-0 left-0 z-20 overflow-y-auto">
         {/* Navigation Menu */}
-        <nav className="pt-[253px]">
+        <nav className="pt-[215px]">
           <ul className="space-y-0">
             {sideNavItems.map((item) => {
               const IconComponent = item.icon;
@@ -424,50 +424,5 @@ const ProjectOverview = () => {
     </div>
   );
 };
-
-// Export the progress bar as a separate component that can be used in App.tsx
-export const ProgressBar = ({ progressSteps }) => (
-  <div className="bg-white border-b border-gray-200 p-4 sm:p-6">
-    <div className="relative">
-      {/* Background progress line */}
-      <div className="absolute top-4 left-4 right-4 h-0.5 bg-gray-200 rounded-full"></div>
-      
-      {/* Active progress line */}
-      <div 
-        className="absolute top-4 left-4 h-0.5 bg-blue-600 rounded-full transition-all duration-300"
-        style={{ 
-          width: `${(progressSteps.filter(step => step.status === 'completed').length / (progressSteps.length - 1)) * 100}%` 
-        }}
-      ></div>
-      
-      <div className="relative flex justify-between">
-        {progressSteps.map((step, index) => (
-          <div key={step.id} className="flex flex-col items-center flex-1 min-w-0">
-            <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-xs sm:text-sm font-medium relative z-10 transition-all duration-200 ${
-              step.status === 'completed' 
-                ? 'bg-blue-600 text-white' 
-                : step.status === 'current'
-                ? 'bg-blue-600 text-white'
-                : 'bg-white text-gray-500 border border-gray-300'
-            }`}>
-              {step.status === 'completed' ? '✓' : index + 1}
-            </div>
-            
-            <div className="mt-2 sm:mt-3 text-center">
-              <div className={`text-xs sm:text-sm font-medium ${
-                step.status === 'completed' || step.status === 'current' 
-                  ? 'text-gray-900' 
-                  : 'text-gray-500'
-              } leading-tight px-1`}>
-                {step.label}
-              </div>
-              <div className="text-xs text-gray-500 mt-1">{step.date}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-);
 
 export default ProjectOverview;

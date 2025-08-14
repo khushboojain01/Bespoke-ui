@@ -352,7 +352,6 @@ const LeftPanel = () => {
     { id: 'add-socks', name: 'Add socks (+4.25€)' }
   ];
 
-
 return (
   <div className="flex bg-white border-r border-gray-200 h-full">
     {/* Fixed Garment Panel - Mobile Responsive */}

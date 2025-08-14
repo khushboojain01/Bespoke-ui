@@ -79,12 +79,14 @@ const CenterPanel = () => {
       </div>
 
       {/* Main Canvas Area - Mobile Responsive */}
-      <div className="flex-1 p-3 sm:p-4 lg:p-6 flex items-center justify-center bg-gray-50 relative min-h-0">
+      <div className="flex-1 p-3 sm:p-4 lg:p-4 flex items-center justify-center bg-gray-50 relative min-h-0">
+
         {/* Main Canvas Container */}
         <div className="relative w-full h-full flex items-center justify-center">
           {showVirtualTryOn ? (
             /* Virtual Try On Mode */
-            <div className="relative bg-white rounded-lg max-w-xs sm:max-w-sm lg:max-w-lg w-full">
+            <div className="relative bg-white rounded-lg w-full h-full aspect-[3/4] max-h-full flex items-center justify-center">
+
               <button
                 onClick={() => setShowVirtualTryOn(false)}
                 className="absolute top-2 right-2 sm:top-4 sm:right-4 p-1 rounded-full hover:bg-gray-100 z-10"
@@ -104,7 +106,8 @@ const CenterPanel = () => {
             /* Normal Suit Display Mode */
             <div className="w-full h-full bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center overflow-hidden">
               <div className="w-full h-full flex items-center justify-center p-4">
-                <div className="max-w-xs sm:max-w-sm lg:max-w-md w-full aspect-[3/4] bg-gray-100 rounded-lg flex items-center justify-center">
+                <div className="w-full h-full aspect-[3/4] max-h-full bg-gray-100 rounded-lg flex items-center justify-center">
+
                   <div className="text-center text-gray-400">
                     <div className="w-16 h-20 sm:w-20 sm:h-24 bg-gray-300 rounded mx-auto mb-2"></div>
                     <p className="text-xs sm:text-sm">Suit Display ({currentView})</p>
@@ -160,24 +163,30 @@ const CenterPanel = () => {
           </button>
         </div>
 
-        {/* Full Look - Mobile Responsive Bottom Right */}
+        {/* 3D View - Mobile Responsive Bottom Right */}
         <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-6 z-10">
-          <div className="bg-white rounded-lg border border-gray-200 p-2 sm:p-3 w-16 sm:w-20 lg:w-24">
-            <div className="flex items-center justify-between mb-1 sm:mb-2">
-              <span className="text-xs text-gray-600 hidden sm:inline">Full Look</span>
-              <span className="text-xs text-gray-600 sm:hidden">Look</span>
-              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full flex-shrink-0"></div>
-            </div>
-            <div className="w-full aspect-[4/3] bg-gray-100 rounded border flex items-center justify-center mb-1 sm:mb-2">
+          <button className="bg-white rounded-lg border border-gray-200 p-2 sm:p-3 w-16 sm:w-20 lg:w-24 hover:bg-gray-50 transition-colors">
+            <div className="w-full aspect-[4/3] bg-gray-100 rounded border flex items-center justify-center mb-1 sm:mb-2 relative">
+              {/* 3D Icon in top right */}
+              <div className="absolute top-1 right-1 w-3 h-3 sm:w-4 sm:h-4">
+                <img 
+                  src="/rotate-3d.svg" 
+                  alt="3D rotate icon" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              
+              {/* Existing content */}
               <div className="flex space-x-0.5">
                 <div className="w-1 h-4 sm:w-1.5 sm:h-6 bg-gray-400 rounded-sm"></div>
                 <div className="w-0.5 h-4 sm:w-1 sm:h-6 bg-gray-500 rounded-sm"></div>
               </div>
             </div>
-          </div>
+          </button>
         </div>
       </div>
     </div>
   );
 };
-export default CenterPanel; 
+
+export default CenterPanel;

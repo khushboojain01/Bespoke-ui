@@ -1303,19 +1303,7 @@ return (
                 <div className="flex-1 overflow-y-auto p-3 lg:p-4">
                   <div className="grid grid-cols-2 gap-3 lg:gap-4">
                     {/* Upload Card - Always First */}
-                    <button className="relative w-full p-3 lg:p-4 rounded-xl border-2 border-dashed border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 text-center group">
-                      <div className="w-full h-16 lg:h-20 rounded-lg mb-2 lg:mb-3 border border-gray-200 bg-gray-50 flex items-center justify-center group-hover:bg-gray-100 transition-colors">
-                        <Plus className="w-6 h-6 lg:w-8 lg:h-8 text-gray-400 group-hover:text-blue-500" />
-                      </div>
-                      <div className="space-y-1">
-                        <div className="text-xs lg:text-sm font-medium text-gray-600 group-hover:text-blue-700">
-                          Upload Fabric
-                        </div>
-                        <div className="text-xs text-gray-500">
-                          Add custom fabric
-                        </div>
-                      </div>
-                    </button>
+                    
 
                     {filteredFabrics.map((fabric) => (
                       <button

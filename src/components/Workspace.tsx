@@ -19,11 +19,11 @@ const Workspace = () => {
       </div>
              
       {/* Right Panel - Smooth slide in/out animation */}
-      <div className={`transition-all duration-500 ease-out transform ${
+      <div className={`transition-all duration-500 ease-out ${
         showCustomerProfile 
           ? 'xl:translate-x-0 xl:opacity-100 xl:w-80 w-full opacity-100 translate-y-0' 
           : 'xl:translate-x-full xl:opacity-0 xl:w-0 w-full opacity-0 translate-y-full xl:translate-y-0'
-      } xl:overflow-hidden`}>
+      } ${showCustomerProfile ? 'xl:overflow-y-auto' : 'xl:overflow-hidden'}`}>
         <div className={`transition-all duration-300 delay-100 ${
           showCustomerProfile ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
         }`}>

@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { Camera, ChevronLeft, ChevronRight, Search, ZoomIn, ZoomOut, X } from 'lucide-react';
 
-const CenterPanel = () => {
+interface CenterPanelProps {
+  showCustomerProfile: boolean;
+  setShowCustomerProfile: (show: boolean) => void;
+}
+
+const CenterPanel: React.FC<CenterPanelProps> = ({ showCustomerProfile, setShowCustomerProfile }) => {
   const [currentStyleIndex, setCurrentStyleIndex] = useState(0);
   const [showVirtualTryOn, setShowVirtualTryOn] = useState(false);
   const [currentView, setCurrentView] = useState('front');
@@ -20,6 +25,10 @@ const CenterPanel = () => {
     setCurrentStyleIndex((prev) => (prev + 1) % styles.length);
   };
 
+  const handleToggleCustomerProfile = () => {
+    setShowCustomerProfile(!showCustomerProfile);
+  };
+
   return (
     <div className="flex-1 flex flex-col bg-white min-w-0">
       {/* Header - Mobile Responsive */}
@@ -29,10 +38,10 @@ const CenterPanel = () => {
           <div className="flex items-center space-x-2 sm:space-x-4">
             <button
               onClick={prevStyle}
-              className="p-1.5 sm:p-2 rounded-full hover:bg-gray-100 transition-colors flex-shrink-0"
+              className="group p-1.5 sm:p-2 rounded-full hover:bg-gray-100 transition-all duration-200 ease-out flex-shrink-0 hover:scale-110 active:scale-95"
               disabled={styles.length <= 1}
             >
-              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 transition-transform duration-200 group-hover:-translate-x-1" />
             </button>
             
             <div className="flex-1 min-w-0">
@@ -49,15 +58,33 @@ const CenterPanel = () => {
             
             <button
               onClick={nextStyle}
-              className="p-1.5 sm:p-2 rounded-full hover:bg-gray-100 transition-colors flex-shrink-0"
+              className="group p-1.5 sm:p-2 rounded-full hover:bg-gray-100 transition-all duration-200 ease-out flex-shrink-0 hover:scale-110 active:scale-95"
               disabled={styles.length <= 1}
             >
-              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 transition-transform duration-200 group-hover:translate-x-1" />
             </button>
           </div>
+
           
-          {/* Virtual Try On Button */}
-          <div className="flex justify-center sm:justify-end">
+          {/* Action Buttons */}
+          <div className="flex flex-col space-y-3 sm:space-y-2 items-center sm:items-end">
+            <button 
+              onClick={handleToggleCustomerProfile}
+              className={`text-xs font-medium transition-all duration-200  ${
+                showCustomerProfile
+                  ? 'text-blue-600 hover:text-blue-800'
+                  : 'text-gray-600 hover:text-gray-800'
+              }`}
+            >
+              <span className="hidden sm:inline border-b border-dotted border-current pb-0.5">
+                {showCustomerProfile ? 'Hide Customer Profile' : 'View Customer Profile'}
+              </span>
+              <span className="sm:hidden border-b border-dotted border-current pb-0.5">
+                {showCustomerProfile ? 'Hide Profile' : 'Profile'}
+              </span>
+            </button>
+            
+            {/* Virtual Try On Button */}
             <button
               onClick={() => setShowVirtualTryOn(!showVirtualTryOn)}
               className={`flex items-center space-x-2 px-3 py-2 sm:px-4 sm:py-2 rounded-lg transition-colors text-sm ${
@@ -89,9 +116,9 @@ const CenterPanel = () => {
 
               <button
                 onClick={() => setShowVirtualTryOn(false)}
-                className="absolute top-2 right-2 sm:top-4 sm:right-4 p-1 rounded-full hover:bg-gray-100 z-10"
+                className="absolute top-2 right-2 sm:top-4 sm:right-4 p-1 rounded-full hover:bg-gray-100 transition-all duration-200 hover:scale-110 active:scale-95 z-10"
               >
-                <X className="w-4 h-4" />
+                <X className="w-4 h-4 transition-transform duration-200 hover:rotate-90" />
               </button>
               <div className="p-4">
                 <div className="w-full aspect-[3/4] bg-gradient-to-b from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
@@ -124,10 +151,10 @@ const CenterPanel = () => {
             <button
               key={view}
               onClick={() => setCurrentView(view)}
-              className={`flex flex-col items-center p-2 sm:p-3 rounded-lg transition-all ${
+              className={`flex flex-col items-center p-2 sm:p-3 rounded-lg transition-all duration-300 ease-out transform hover:scale-105 active:scale-95 ${
                 currentView === view
-                  ? 'bg-blue-50 border border-blue-200'
-                  : 'bg-white border border-gray-200 hover:bg-gray-50'
+                  ? 'bg-blue-50 border border-blue-200 shadow-lg'
+                  : 'bg-white border border-gray-200 hover:bg-gray-50 hover:shadow-md'
               }`}
             >
               <div className={`w-4 h-4 sm:w-6 sm:h-6 mb-1 ${
@@ -151,33 +178,30 @@ const CenterPanel = () => {
         </div>
 
         {/* Zoom Controls - Mobile Responsive Bottom Center */}
-        <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1 sm:space-x-2 bg-white rounded-full px-2 py-1.5 sm:px-3 sm:py-2 shadow-sm border border-gray-200 z-10">
-          <button className="p-1.5 sm:p-2 hover:bg-gray-100 rounded-full transition-colors">
-            <Search className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
+        <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1 sm:space-x-2 bg-white rounded-full px-2 py-1.5 sm:px-3 sm:py-2 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 z-10">
+          <button className="group p-1.5 sm:p-2 hover:bg-gray-100 rounded-full transition-all duration-200 hover:scale-110 active:scale-95">
+            <Search className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 transition-transform duration-200 group-hover:scale-110" />
           </button>
-          <button className="p-1.5 sm:p-2 hover:bg-gray-100 rounded-full transition-colors">
-            <ZoomIn className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
+          <button className="group p-1.5 sm:p-2 hover:bg-gray-100 rounded-full transition-all duration-200 hover:scale-110 active:scale-95">
+            <ZoomIn className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 transition-transform duration-200 group-hover:scale-125" />
           </button>
-          <button className="p-1.5 sm:p-2 hover:bg-gray-100 rounded-full transition-colors">
-            <ZoomOut className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
+          <button className="group p-1.5 sm:p-2 hover:bg-gray-100 rounded-full transition-all duration-200 hover:scale-110 active:scale-95">
+            <ZoomOut className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 transition-transform duration-200 group-hover:scale-75" />
           </button>
         </div>
 
         {/* 3D View - Mobile Responsive Bottom Right */}
         <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-6 z-10">
-          <button className="bg-white rounded-lg border border-gray-200 p-2 sm:p-3 w-16 sm:w-20 lg:w-24  transition-colors">
-            <div className="w-full h-20 aspect-[4/3] bg-gray-200  border flex items-center justify-center mb-1 sm:mb-2 relative hover:bg-gray-300">
+          <button className="group bg-white rounded-lg border border-gray-200 p-2 sm:p-3 w-16 sm:w-20 lg:w-24 transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95">
+            <div className="w-full h-20 aspect-[4/3] bg-gray-200 border flex items-center justify-center mb-1 sm:mb-2 relative hover:bg-gray-300 transition-colors duration-200 rounded">
               {/* 3D Icon in top right */}
-              <div className="absolute top-1 right-1 w-3 h-5 sm:w-4 sm:h-4">
+              <div className="absolute top-1 right-1 w-3 h-5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:rotate-12">
                 <img 
                   src="/rotate.svg" 
                   alt="3D rotate icon" 
                   className="w-full h-full object-contain"
                 />
               </div>
-              
-              {/* Existing content */}
-              
             </div>
           </button>
         </div>

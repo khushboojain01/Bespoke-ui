@@ -205,50 +205,50 @@ const ProjectOverview = () => {
   );
 
   const renderCustomerSection = () => (
-    <div className="px-6 py-6">
+    <div className="px-4 sm:px-6 py-4 max-w-full">
       {/* Customer Profile */}
-      <div className="bg-white border border-gray-200 rounded-lg p-6 sm:p-8">
-        <div className="flex items-start space-x-6 mb-8">
-          <div className="w-20 h-20 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
+      <div className="bg-white border border-gray-200 rounded-lg p-4 max-w-full overflow-hidden">
+        <div className="flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-4 mb-5">
+          <div className="w-14 h-14 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
             <img 
               src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150" 
               alt="Marcus Hill"
               className="w-full h-full object-cover"
             />
           </div>
-          <div>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-1">Marcus Hill</h3>
+          <div className="min-w-0 flex-1">
+            <h3 className="text-lg font-semibold text-gray-900 mb-1">Marcus Hill</h3>
             <p className="text-sm text-gray-600 mb-2">Order ID: #2275</p>
             <div className="flex items-center">
-              <Star className="w-5 h-5 text-yellow-400 fill-current" />
+              <Star className="w-4 h-4 text-yellow-400 fill-current" />
               <span className="text-sm text-gray-600 ml-2 font-medium">4.8/5 rating</span>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
           {/* Contact Information */}
-          <div>
-            <h4 className="text-xl font-medium text-gray-900 mb-6">Contact Details</h4>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-4 p-3 bg-gray-50 rounded">
-                <Mail className="w-5 h-5 text-gray-400 flex-shrink-0" />
-                <span className="text-sm text-gray-700">marcus.hill@email.com</span>
+          <div className="min-w-0">
+            <h4 className="text-base font-medium text-gray-900 mb-3">Contact Details</h4>
+            <div className="space-y-2">
+              <div className="flex items-center space-x-3 text-sm text-gray-700">
+                <Mail className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                <span className="truncate">marcus.hill@email.com</span>
               </div>
-              <div className="flex items-center space-x-4 p-3 bg-gray-50 rounded">
-                <Phone className="w-5 h-5 text-gray-400 flex-shrink-0" />
-                <span className="text-sm text-gray-700">+1 (555) 123-4567</span>
+              <div className="flex items-center space-x-3 text-sm text-gray-700">
+                <Phone className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                <span className="truncate">+1 (555) 123-4567</span>
               </div>
-              <div className="flex items-center space-x-4 p-3 bg-gray-50 rounded">
-                <MapPin className="w-5 h-5 text-gray-400 flex-shrink-0" />
-                <span className="text-sm text-gray-700">New York, NY</span>
+              <div className="flex items-center space-x-3 text-sm text-gray-700">
+                <MapPin className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                <span className="truncate">New York, NY</span>
               </div>
             </div>
 
             {/* Customer Photos */}
-            <div className="mt-8">
-              <h4 className="text-xl font-medium text-gray-900 mb-4">Reference Photos</h4>
-              <div className="grid grid-cols-3 gap-4">
+            <div className="mt-4">
+              <h4 className="text-base font-medium text-gray-900 mb-2">Reference Photos</h4>
+              <div className="grid grid-cols-3 gap-2">
                 <div className="aspect-square rounded overflow-hidden bg-gray-100">
                   <img 
                     src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=200&h=200" 
@@ -275,66 +275,64 @@ const ProjectOverview = () => {
           </div>
 
           {/* Measurements */}
-          <div>
-            <h4 className="text-xl font-medium text-gray-900 mb-6">Measurements</h4>
-            <div className="space-y-6">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+          <div className="min-w-0">
+            <h4 className="text-base font-medium text-gray-900 mb-3">Measurements</h4>
+            <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-gray-50 rounded p-2 min-w-0">
                   <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">Chest</div>
-                  <div className="text-xl font-semibold text-gray-900 mt-1">40"</div>
+                  <div className="text-lg font-semibold text-gray-900 mt-1">40"</div>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <div className="bg-gray-50 rounded p-2 min-w-0">
                   <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">Waist</div>
-                  <div className="text-xl font-semibold text-gray-900 mt-1">34"</div>
+                  <div className="text-lg font-semibold text-gray-900 mt-1">34"</div>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <div className="bg-gray-50 rounded p-2 min-w-0">
                   <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">Shoulders</div>
-                  <div className="text-xl font-semibold text-gray-900 mt-1">18"</div>
+                  <div className="text-lg font-semibold text-gray-900 mt-1">18"</div>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <div className="bg-gray-50 rounded p-2 min-w-0">
                   <div className="text-xs text-gray-600 uppercase tracking-wide font-medium">Height</div>
-                  <div className="text-xl font-semibold text-gray-900 mt-1">5'10"</div>
+                  <div className="text-lg font-semibold text-gray-900 mt-1">5'10"</div>
                 </div>
               </div>
 
               {/* Additional Measurements */}
-              <div className="pt-4 border-t border-gray-200">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="flex justify-between text-sm py-2">
-                    <span className="text-gray-600 font-medium">Inseam:</span>
-                    <span className="font-medium text-gray-900">32"</span>
-                  </div>
-                  <div className="flex justify-between text-sm py-2">
-                    <span className="text-gray-600 font-medium">Sleeve:</span>
-                    <span className="font-medium text-gray-900">25"</span>
-                  </div>
-                  <div className="flex justify-between text-sm py-2">
-                    <span className="text-gray-600 font-medium">Neck:</span>
-                    <span className="font-medium text-gray-900">16"</span>
-                  </div>
-                  <div className="flex justify-between text-sm py-2">
-                    <span className="text-gray-600 font-medium">Hip:</span>
-                    <span className="font-medium text-gray-900">38"</span>
-                  </div>
+              <div className="space-y-1">
+                <div className="flex justify-between text-sm py-1">
+                  <span className="text-gray-600 font-medium">Inseam:</span>
+                  <span className="font-medium text-gray-900">32"</span>
+                </div>
+                <div className="flex justify-between text-sm py-1">
+                  <span className="text-gray-600 font-medium">Sleeve:</span>
+                  <span className="font-medium text-gray-900">25"</span>
+                </div>
+                <div className="flex justify-between text-sm py-1">
+                  <span className="text-gray-600 font-medium">Neck:</span>
+                  <span className="font-medium text-gray-900">16"</span>
+                </div>
+                <div className="flex justify-between text-sm py-1">
+                  <span className="text-gray-600 font-medium">Hip:</span>
+                  <span className="font-medium text-gray-900">38"</span>
                 </div>
               </div>
             </div>
 
             {/* Preferences */}
-            <div className="mt-8">
-              <h4 className="text-xl font-medium text-gray-900 mb-4">Style Preferences</h4>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded">
-                  <div className="w-2 h-2 bg-gray-600 rounded-full flex-shrink-0"></div>
-                  <span className="text-sm text-gray-700 font-medium">Prefers modern, tailored fits</span>
+            <div className="mt-4">
+              <h4 className="text-base font-medium text-gray-900 mb-2">Style Preferences</h4>
+              <div className="space-y-1">
+                <div className="flex items-center space-x-2 text-sm text-gray-700">
+                  <div className="w-1.5 h-1.5 bg-gray-600 rounded-full flex-shrink-0"></div>
+                  <span>Prefers modern, tailored fits</span>
                 </div>
-                <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded">
-                  <div className="w-2 h-2 bg-gray-600 rounded-full flex-shrink-0"></div>
-                  <span className="text-sm text-gray-700 font-medium">Business professional style</span>
+                <div className="flex items-center space-x-2 text-sm text-gray-700">
+                  <div className="w-1.5 h-1.5 bg-gray-600 rounded-full flex-shrink-0"></div>
+                  <span>Business professional style</span>
                 </div>
-                <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded">
-                  <div className="w-2 h-2 bg-gray-600 rounded-full flex-shrink-0"></div>
-                  <span className="text-sm text-gray-700 font-medium">Navy and charcoal colors</span>
+                <div className="flex items-center space-x-2 text-sm text-gray-700">
+                  <div className="w-1.5 h-1.5 bg-gray-600 rounded-full flex-shrink-0"></div>
+                  <span>Navy and charcoal colors</span>
                 </div>
               </div>
             </div>
@@ -345,19 +343,19 @@ const ProjectOverview = () => {
   );
 
   const renderHistorySection = () => (
-    <div className="px-6 py-6">
+    <div className="px-4 sm:px-6 py-4 max-w-full">
       {/* History Content */}
-      <div className="bg-white border border-gray-200 rounded-lg p-6 sm:p-8">
-        <h3 className="text-xl font-medium text-gray-900 mb-8">Consultation Timeline</h3>
-        <div className="space-y-6">
-          <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-lg border border-gray-200">
-            <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center flex-shrink-0">
-              <User className="w-6 h-6 text-white" />
+      <div className="bg-white border border-gray-200 rounded-lg p-4 max-w-full overflow-hidden">
+        <h3 className="text-lg font-medium text-gray-900 mb-4">Consultation Timeline</h3>
+        <div className="space-y-3">
+          <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
+            <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center flex-shrink-0">
+              <User className="w-4 h-4 text-white" />
             </div>
             <div className="flex-1 min-w-0">
-              <div className="flex items-center justify-between mb-3">
-                <h4 className="text-lg font-medium text-gray-900">Feedback Session</h4>
-                <span className="text-sm text-gray-600 font-medium bg-white px-3 py-1 rounded-full border border-gray-200">Jan 22</span>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2 space-y-1 sm:space-y-0">
+                <h4 className="text-base font-medium text-gray-900">Feedback Session</h4>
+                <span className="text-xs text-gray-600 font-medium bg-white px-2 py-1 rounded-full border border-gray-200 self-start">Jan 22</span>
               </div>
               <p className="text-sm text-gray-700 leading-relaxed">Customer requested minor fit adjustments to jacket shoulders and discussed project timeline and delivery expectations.</p>
             </div>
@@ -383,7 +381,7 @@ const ProjectOverview = () => {
   return (
     <div className="bg-gray-50 min-h-screen flex">
       {/* Fixed Left Sidebar Navigation */}
-      <div className="w-64 bg-white border-r border-gray-200 fixed inset-y-0 left-0 z-20 overflow-y-auto">
+      <div className="w-50 bg-white border-r border-gray-200 fixed inset-y-0 left-0 z-20 overflow-y-auto">
         {/* Navigation Menu */}
         <nav className="pt-[215px]">
           <ul className="space-y-0">
@@ -416,8 +414,8 @@ const ProjectOverview = () => {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 ml-64 overflow-auto">
-        <div className="max-w-7xl mx-auto">
+      <div className="flex-1 ml-64">
+        <div className="max-w-6xl mx-auto pr-4">
           {renderContent()}
         </div>
       </div>
